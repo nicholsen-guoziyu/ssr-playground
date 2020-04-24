@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./ClientApp/Client.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./ClientAppSSR/Client.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./ClientApp/Client.js":
-/*!*****************************!*\
-  !*** ./ClientApp/Client.js ***!
-  \*****************************/
+/***/ "./ClientAppSSR/Client.js":
+/*!********************************!*\
+  !*** ./ClientAppSSR/Client.js ***!
+  \********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99,20 +99,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Hello__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Hello */ "./ClientApp/Hello.js");
+/* harmony import */ var _Hello__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Hello */ "./ClientAppSSR/Hello.js");
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Hello__WEBPACK_IMPORTED_MODULE_2__["default"], {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.hydrate( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Hello__WEBPACK_IMPORTED_MODULE_2__["default"], {
   name: "World"
 }), document.getElementById("app"));
 
 /***/ }),
 
-/***/ "./ClientApp/Hello.js":
-/*!****************************!*\
-  !*** ./ClientApp/Hello.js ***!
-  \****************************/
+/***/ "./ClientAppSSR/Hello.js":
+/*!*******************************!*\
+  !*** ./ClientAppSSR/Hello.js ***!
+  \*******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -158,7 +158,7 @@ var Hello = /*#__PURE__*/function (_Component) {
   _createClass(Hello, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "HELLO!");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "HELLO SSR!");
     }
   }]);
 
@@ -28687,4 +28687,4 @@ if (false) {} else {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=clientbundlessr.js.map

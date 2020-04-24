@@ -1,25 +1,22 @@
-const webpack = require('webpack');
 const path = require ('path');
-
 const APP_DIR = path.resolve(__dirname,'ClientApp');
-const PUBLIC_DIR = path.resolve(__dirname,'public');
+const BUILD_DIR = path.resolve(__dirname,'build');
+
+const webpackNodeExternals = require('webpack-node-externals');
 
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
+const SERVER_DIR = path.resolve(__dirname, 'ServerApp');
 
 const config = {
+    target: 'node',
+    entry: SERVER_DIR + '/Server.js',
 
-    entry: APP_DIR + '/Client.js',
-    devServer:{
-        contentBase: PUBLIC_DIR,
-        port: 9000,
-        open: true,
-        historyApiFallback: true
-    },
     output: {
-        path: PUBLIC_DIR,
-        filename: 'clientbundle.js'
-    }
+        path: BUILD_DIR,
+        filename: 'serverbundle.js'
+    },
+    externals: [webpackNodeExternals()]
 
 };
 
