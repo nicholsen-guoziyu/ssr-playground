@@ -7,6 +7,8 @@
     "start:dev": "webpack-dev-server --hot --config webpack.client.js",
     "dev:build-client": "webpack --config webpack.client.js",
 
+    "start:reactreduxdev": "webpack-dev-server --hot --config webpack.client.react.redux.js",
+
     "dev:build-server": "webpack --config webpack.server.js",
     "dev:build-client-ssr": "webpack --config webpack.client.ssr.js",
     "dev:server": "node build/serverbundle.js"

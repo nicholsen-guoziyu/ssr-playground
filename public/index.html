@@ -8,12 +8,15 @@
 <h1>Main Page</h1>
 <div id="app"></div>
 <!-- for client ssr ReactDOM.render CSR -->
-<script src="clientbundle.js"></script> 
-
-<!-- for client ssr ReactDOM.hydrate for SSR. This will not applicable here because the html for clientbundlessr.js will be returned by Node Express from server-->
-<!-- <script src="clientbundlessr.js"></script>  -->
+<!-- <script src="clientbundle.js"></script>  -->
 
 <!-- for redux only -->
 <!-- <script src="clientreduxbundle.js"></script> --> 
+
+<!-- for react redux only -->
+<script src="clientreactreduxbundle.js"></script> 
+
+<!-- for client ssr ReactDOM.hydrate for SSR. The below script tag is not applicable here because the html for clientbundlessr.js will be returned by Node Express from server-->
+<!-- <script src="clientbundlessr.js"></script>  -->
 </body>
 </html>
