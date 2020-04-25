@@ -2,6 +2,7 @@ import React from "react";
 import List from "./List";
 import Form from "./Form";
 import Post from "./Post";
+import PostSaga from "./PostSaga";
 
 const App = () => (
   <>
@@ -13,9 +14,13 @@ const App = () => (
       <h2>Add a new article</h2>
       <Form />
     </div>
-    <div>
+    {/* <div>
       <h2>API posts</h2>
       <Post />
+    </div> */}
+    <div>
+      <h2>Saga API posts</h2>
+      <PostSaga />
     </div>
   </>
 );

@@ -7,6 +7,7 @@
     "start:dev": "webpack-dev-server --hot --config webpack.client.js",
     "dev:build-client": "webpack --config webpack.client.js",
     "start:reactreduxdev": "webpack-dev-server --hot --config webpack.client.react.redux.js",
+    "start:reactreduxsagadev": "webpack-dev-server --hot --config webpack.client.react.redux.saga.js",
     "dev:build-server": "webpack --config webpack.server.js",
     "dev:build-client-ssr": "webpack --config webpack.client.ssr.js",
     "dev:server": "node build/serverbundle.js"
@@ -16,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
@@ -25,6 +27,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@babel/runtime": "^7.9.2",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
@@ -34,6 +37,7 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0",
     "webpack-node-externals": "^1.7.2"
   }

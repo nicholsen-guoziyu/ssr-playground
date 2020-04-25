@@ -13,3 +13,7 @@ export function getData() {
       });
   };
 }
+
+export function getDataReduxSaga() {
+  return { type: "DATA_REQUESTED" };
+}
