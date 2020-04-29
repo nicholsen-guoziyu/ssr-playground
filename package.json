@@ -8,6 +8,7 @@
     "dev:build-client": "webpack --config webpack.client.js",
     "start:reactreduxdev": "webpack-dev-server --hot --config webpack.client.react.redux.js",
     "start:reactreduxsagadev": "webpack-dev-server --hot --config webpack.client.react.redux.saga.js",
+    "start:reactreduxssrsagadev": "webpack --config webpack.client.redux.ssr.saga.js",
     "dev:build-server": "webpack --config webpack.server.js",
     "dev:build-client-ssr": "webpack --config webpack.client.ssr.js",
     "dev:server": "node build/serverbundle.js"
@@ -28,17 +29,22 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
+    "axios": "^0.19.2",
     "express": "^4.17.1",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
+    "redux-axios-middleware": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0",
+    "serialize-javascript": "^3.0.0",
     "webpack-node-externals": "^1.7.2"
   }
 }

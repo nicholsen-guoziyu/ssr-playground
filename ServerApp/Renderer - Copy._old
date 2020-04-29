@@ -1,0 +1,27 @@
+import React from 'react';
+import {renderToString} from 'react-dom/server';
+import {StaticRouter as Router, Route, Switch } from 'react-router-dom';
+// import AppRouter from "../ClientAppSSR/AppRouter";
+import Hello from "../ClientAppSSR/Hello";
+import World from "../ClientAppSSR/World";
+function AppRouter() {
+  return (
+    <Switch>
+      <Route path="/hello" component={Hello} />
+      <Route component={World} />
+    </Switch>
+  );
+}
+export default (req) => {
+    let context = {};
+    const content = renderToString(
+        <Router location={req.path} context={context}>
+            <AppRouter />
+        </Router>
+    );
+
+    return {
+          htmlcode: `${content}`,
+        routestatus: context.status
+    }
+};

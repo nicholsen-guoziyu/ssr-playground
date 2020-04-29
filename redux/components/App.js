@@ -3,6 +3,8 @@ import List from "./List";
 import Form from "./Form";
 import Post from "./Post";
 import PostSaga from "./PostSaga";
+import { connect } from "react-redux";
+import { getDataReduxSaga } from "../actions/index";
 
 const App = () => (
   <>
@@ -25,4 +27,22 @@ const App = () => (
   </>
 );
 
-export default App;
+function loadData(store)
+{
+  store.dispatch(getDataReduxSaga());
+}
+
+
+export default {
+  component: connect(null, { getDataReduxSaga })(App),
+  loadData
+};
+
+// App.loadData = getDataReduxSaga; // static declaration of data requirements
+
+// const mapDispatchToProps = {
+//   getDataReduxSaga,
+// };
+
+// export default connect( null, mapDispatchToProps )(App);
+

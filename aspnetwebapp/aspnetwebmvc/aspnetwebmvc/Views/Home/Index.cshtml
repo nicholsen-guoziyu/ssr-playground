@@ -1,0 +1,27 @@
+﻿@namespace System.Net.Http
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+
+        <h1>Main Page</h1>
+        @{
+            var jsonResponse = "";
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync("http://localhost:3040");
+                jsonResponse = await response.Content.ReadAsStringAsync();
+            }
+
+        }
+        @*<div id="app">@Html.Raw(jsonResponse)</div>*@
+        @Html.Raw(jsonResponse)
+    </div>
+@section Scripts {
+    <script type="text/javascript" src="~/js/clientreduxssrsagabundle.js"></script>
+    
+}

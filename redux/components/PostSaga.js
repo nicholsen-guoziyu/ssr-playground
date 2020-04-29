@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getDataReduxSaga } from "../actions/index";
+import { fetchData } from "../actions/index";
 
 export class PostSaga extends Component {
   constructor(props) {
@@ -8,28 +9,59 @@ export class PostSaga extends Component {
   }
 
   componentDidMount() {
-    this.props.getDataReduxSaga();
-    console.log("Redux Saga");
+    // this.props.getDataReduxSaga();
   }
 
-  render() {
-    return (
-      <ul>
-        {this.props.articles.map(el => (
-          <li key={el.id}>{el.title}</li>
-        ))}
-      </ul>
-    );
+  // render() {
+  //   console.log("render");
+  //   return (
+  //     <div>Test</div>
+  //   );
+  // }
+    render() {
+      return (
+        <ul>
+          {this.props.articles.map(el => (
+            <li key={el.id}>{el.title}</li>
+          ))}
+        </ul>
+      );
   }
 }
 
-function mapStateToProps(state) {
+// function mapStateToProps(state) {
+//   return {
+//     articles: state.remoteArticles.slice(0, 10)
+//   };
+// }
+const mapStateToProps = (state) => {
+console.log(state);
   return {
-    articles: state.remoteArticles.slice(0, 10)
+    articles: state.remoteArticles
   };
-}
+};
 
-export default connect(
-  mapStateToProps,
-  { getDataReduxSaga }
-)(PostSaga);
+// export default connect(mapStateToProps,
+//     { speakersFetchData })(Speakers)
+
+
+// this is returning a promise
+// function loadData(store) {
+//   return store.dispatch(getDataReduxSaga());
+// }
+
+// export default {
+//   component: connect(mapStateToProps, { getDataReduxSaga })(PostSaga),
+//   loadData
+// };
+
+// export default connect(mapStateToProps,
+//     { getDataReduxSaga })(PostSaga)
+
+PostSaga.loadData = fetchData; // static declaration of data requirements
+
+const mapDispatchToProps = {
+  fetchData,
+};
+
+export default connect( mapStateToProps, mapDispatchToProps )( PostSaga );
