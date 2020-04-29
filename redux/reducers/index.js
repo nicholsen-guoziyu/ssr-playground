@@ -3,10 +3,12 @@ import { ADD_ARTICLE } from "../constants/action-types";
 const initialState = {
   articles: [],
   remoteArticles: [],
+  users:[],
+  posts:[],
   isLoading:false
 };
 
-function rootReducer(state = initialState, action) {
+function rootReducer(state, action) {
   console.log(action.type);
   if (action.type === ADD_ARTICLE) {
     return Object.assign({}, state, {
@@ -35,16 +37,29 @@ function rootReducer(state = initialState, action) {
       isLoading: true
     });
     
-}
-else  if (action.type === "STORE_DATA") {
-  //console.log(action.payload.data);
-  //console.log(action);
-  return Object.assign({}, state, {
-    articles: [],
-    remoteArticles: action.payload,
-    isLoading: true
-  });
-}
+  }
+  else  if (action.type === "STORE_DATA") {
+    //console.log(action.payload.data);
+    //console.log(action);
+    return Object.assign({}, state, {
+      articles: [],
+      remoteArticles: action.payload,
+      isLoading: true
+    });
+  }
+  else  if (action.type === "USERS_DATA") {
+    return Object.assign({}, state, {
+      users : action.payload
+    });
+  }
+
+  else  if (action.type === "POSTS_DATA") {
+    return Object.assign({}, state, {
+      posts : action.payload.slice(0, 10)
+    });
+  }
+  console.log("initial state");
+  console.log(state);
   return state;
 }
 

@@ -13,7 +13,11 @@ let middleware = [
     thunk
 ];
 
-export default function configureStore(initialState = {}) {
+export default function configureStore(initialState = {articles: [],
+    remoteArticles: [],
+    users:[],
+    posts:[],
+    isLoading:false}) {
     const composeEnhancers = composeWithDevTools({
         // Specify name here, actionsBlacklist, actionsCreators and other options if needed
     });

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDataReduxSaga } from "../actions/index";
-import { fetchData } from "../actions/index";
+
 
 export class PostSaga extends Component {
   constructor(props) {
@@ -19,6 +18,7 @@ export class PostSaga extends Component {
   //   );
   // }
     render() {
+      console.log(this.props.articles);
       return (
         <ul>
           {this.props.articles.map(el => (
@@ -35,9 +35,10 @@ export class PostSaga extends Component {
 //   };
 // }
 const mapStateToProps = (state) => {
-console.log(state);
+  console.log("PostSaga");
+  console.log(state);
   return {
-    articles: state.remoteArticles
+    articles: state.posts
   };
 };
 
@@ -58,10 +59,10 @@ console.log(state);
 // export default connect(mapStateToProps,
 //     { getDataReduxSaga })(PostSaga)
 
-PostSaga.loadData = fetchData; // static declaration of data requirements
+// PostSaga.loadData = fetchData; // static declaration of data requirements
 
-const mapDispatchToProps = {
-  fetchData,
-};
+// const mapDispatchToProps = {
+//   fetchData,
+// };
 
-export default connect( mapStateToProps, mapDispatchToProps )( PostSaga );
+export default connect( mapStateToProps, null )( PostSaga );

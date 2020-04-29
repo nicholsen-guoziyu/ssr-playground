@@ -6,6 +6,8 @@ import Layout from "./components/Layout";
 import Hello from "./components/Hello";
 import PostSaga from "./components/PostSaga";
 
+import App from "./components/App";
+
 
 const preloadedState = window.__PRELOADED_STATE__
 
@@ -16,7 +18,7 @@ const store = configureStore(preloadedState);
 
   ReactDOM.hydrate(
   <Provider store={store}>
-    <PostSaga />
+    <App />
   </Provider>,
   document.getElementById("app")
 );

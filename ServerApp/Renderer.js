@@ -5,17 +5,17 @@ import {StaticRouter } from 'react-router-dom';
 import Layout from "../redux/components/Layout";
 import Hello from "../redux/components/Hello";
 import PostSaga from "../redux/components/PostSaga";
+import App from "../redux/components/App";
 import serialize from "serialize-javascript";
 export default (req, store, context) => {
+  const reduxState = store.getState( );
+  //console.log(reduxState);
   const reactDom = renderToString( 
     <Provider store={store}>
-        <StaticRouter context={context} location={req.url}>
-            <PostSaga />
-        </StaticRouter>
+        <App />
     </Provider>
    );
 
-  const reduxState = store.getState( );
 
   return {
     htmlcode: `<div id="app">${ reactDom }</div>

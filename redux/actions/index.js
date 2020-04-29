@@ -54,3 +54,14 @@ const storeData = ( data ) => ( {
           });
       };
     }
+
+
+    export const retrieveData = (url, typeName) => {
+      return function(dispatch) {
+        return fetch(url)
+          .then(response => response.json())
+          .then(json => {
+            dispatch({ type: typeName, payload: json });
+          });
+      };
+    }
